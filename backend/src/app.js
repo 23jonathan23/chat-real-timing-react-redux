@@ -36,11 +36,11 @@ io.on('connection', socket => {
 
   //Recebe as messagem enviadas por cada usuario
   socket.on('sendMessage', data => {
-    let dataMsg = new db({ message: data })
+    let dataMsg = new db({ username: data.username, message: data.message, date: data.date })
     //Persiste a mensagem no banco de dados
     dataMsg.save()
     //Envia a messagem a todos usuario conectados
-    socket.broadcast.emit('receivedMessage', data)
+    socket.broadcast.emit('receivedMessage', data.message)
   })
 
 })

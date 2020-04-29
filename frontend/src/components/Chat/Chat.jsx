@@ -46,17 +46,21 @@ export default function Chat(props) {
 
     if (author.length && message.length) {
       messageObject = {
-        date,
-        author,
-        hours,
-        message
+        username: author,
+        message: {
+          date,
+          author,
+          hours,
+          message
+        },
+        date: date
       }
     }
 
     //Mandando mensagem
     props.socket.emit('sendMessage', messageObject)
 
-    setMsgsChat([...msgsChat, messageObject])
+    setMsgsChat([...msgsChat, messageObject.message])
 
     setMsg('')
 
