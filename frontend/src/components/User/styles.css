@@ -1,0 +1,12 @@
+
+.user h3 {
+  font-family: Helvetica, sans-serif;
+  color: #1e1e1e;
+  font-weight: 300;
+  margin: 20px;
+}
+
+.user h3 span {
+  color: #0061f1;
+  font-weight: 500;
+}
